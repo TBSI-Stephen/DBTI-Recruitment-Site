@@ -1,0 +1,10 @@
+{
+  "description": "A job applicant portal to browse openings, track applications, manage documents and profiles, and stay prepared for upcoming interviews and exams.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
