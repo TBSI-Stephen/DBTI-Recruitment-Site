@@ -93,7 +93,15 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const description = config.description ?? "";
   // Imported HTML keeps its own favicon. New Makes use PNG because Google Search does not
   // support SVG favicons, even though browsers do.
-  const favicon = config.icons?.icon ?? "/favicon.png";
+  const base = process.env.GITHUB_ACTIONS
+  ? "/DBTI-Recruitment-Site/"
+  : process.env.FIGMA_PUBLIC_URL
+    ? `${process.env.FIGMA_PUBLIC_URL}/`
+    : "/";
+
+const favicon = config.icons?.icon
+  ? `${base}${config.icons.icon.replace(/^\/+/, "")}`
+  : `${base}favicon.png`;
   const socialImage = config.openGraph?.image ?? "";
   const language = sanitizeHtmlValue(config.language) || "en";
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId);
