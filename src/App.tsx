@@ -232,7 +232,10 @@ const navItems: { id: string; label: string; icon: IconName }[] = [
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <div className={`logo ${light ? "logo-light" : ""}`}>
-      <img src="/techignite-logo.png" alt="TechIgnite" />
+      <img
+        src={`${import.meta.env.BASE_URL}techignite-logo.png`}
+        alt="TechIgnite"
+      />
     </div>
   );
 }
